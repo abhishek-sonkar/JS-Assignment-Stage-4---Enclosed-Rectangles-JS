@@ -34,6 +34,7 @@ function contains(recA, recB) {
 	return false;
 }
 
+//relative dimension of recB wrt rec A
 function relative(recA, recB) {
 	const recAn = normalize(recA);
 	const recBn = normalize(recB);
@@ -70,8 +71,8 @@ function normalize(rec) {
 	return {
 		x1: rec.top ? parseInt(rec.top) : (T - (parseInt(rec.bottom) + parseInt(rec.height))),
 		y1: rec.left ? parseInt(rec.left) : (W - (parseInt(rec.right) + parseInt(rec.width))),
-		x2: rec.bottom ? (T - parseInt(rec.bottom)) : parseInt(rec.top) + parseInt(rec.height),
-		y2: rec.right ? (W - parseInt(rec.right)) : parseInt(rec.left) + parseInt(rec.width)
+		x2: rec.bottom ? (T - parseInt(rec.bottom)) : (parseInt(rec.top) + parseInt(rec.height)),
+		y2: rec.right ? (W - parseInt(rec.right)) : (parseInt(rec.left) + parseInt(rec.width))
 	}
 }
 
